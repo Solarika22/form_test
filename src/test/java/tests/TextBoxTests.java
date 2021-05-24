@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -86,7 +87,7 @@ public class TextBoxTests {
         $("[placeholder=\"name@example.com\"]").setValue("someemail@mailmail.ru");
         $("textarea").setValue("some user address 74");
         $(".form-control", 3).setValue("some user trali vali");
-        $("[id=submit]").click();
+        $(byText("Submit")).click();
 
         $("[id=output]").shouldHave(text(userName),
                 text("Email:"),
